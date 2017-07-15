@@ -22,7 +22,7 @@ class InstagramWebCreate {
     $password = ($password) ? $password : $this->generateRandomString($this->passwordLength);
     $name = ($name) ? $name : ucfirst($this->parse($this->_nameFile[0])) . ' ' . ucfirst($this->parse($this->_nameFile[1]));
     # CURL Case
-    $proxy = '204.13.204.125:8080';
+    $proxy = '213.238.242.55:45454';
     $ch = curl_init();
     curl_setopt($ch, CURLOPT_URL, "https://www.instagram.com/accounts/web_create_ajax/");
     curl_setopt($ch, CURLOPT_RETURNTRANSFER, 1);
