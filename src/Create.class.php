@@ -22,11 +22,13 @@ class InstagramWebCreate {
     $password = ($password) ? $password : $this->generateRandomString($this->passwordLength);
     $name = ($name) ? $name : ucfirst($this->parse($this->_nameFile[0])) . ' ' . ucfirst($this->parse($this->_nameFile[1]));
     # CURL Case
+    $proxy = '204.13.204.125:8080';
     $ch = curl_init();
     curl_setopt($ch, CURLOPT_URL, "https://www.instagram.com/accounts/web_create_ajax/");
     curl_setopt($ch, CURLOPT_RETURNTRANSFER, 1);
     curl_setopt($ch, CURLOPT_POSTFIELDS, "email=".rawurlencode($email)."&password={$password}&username={$username}&first_name=" . rawurlencode($name));
     curl_setopt($ch, CURLOPT_POST, 1);
+    curl_setopt($ch, CURLOPT_PROXY, $proxy);
     curl_setopt($ch, CURLOPT_ENCODING, 'gzip, deflate');
     $headers = array();
     $headers[] = "Cookie: mid=WScGWwALAAHFVcPh-_2-bxrolFvU; ig_vw=1366; ig_pr=1; csrftoken=kWwwZNxDmGAdiS4qZoLq0MZiDcztnd7E; rur=FRC";
